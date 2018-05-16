@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MesComptes</string>
+    <string name="month1">Janvier</string>
+    <string name="month2">Février</string>
+    <string name="month3">Mars</string>
+    <string name="month4">Avril</string>
+</resources>
