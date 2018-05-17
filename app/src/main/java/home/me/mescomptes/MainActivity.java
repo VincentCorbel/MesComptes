@@ -20,6 +20,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    int year;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         //set current Year
         TextView currentYear =  findViewById(R.id.text_current_year);
-        int year = Calendar.getInstance().get(Calendar.YEAR);
+        this.year = Calendar.getInstance().get(Calendar.YEAR);
         currentYear.setText(String.valueOf(year));
 
 
@@ -104,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Log.d("layoutItemMonth","Click layoutItem position : " + position);
-                    MainActivity.this.startActivity(new Intent(MainActivity.this, MonthActivity.class));
+
+                    Intent intent = new Intent(MainActivity.this, MonthActivity.class);
+                    intent.putExtra("positionSelect", position);
+                    intent.putExtra("yearSelect", MainActivity.this.year);
+                    MainActivity.this.startActivity(intent);
                 }
             });
         }
